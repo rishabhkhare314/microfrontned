@@ -1,22 +1,16 @@
 name: deploy-container
 
 on:
+ workflow_dispatch:
   push:
     branches:
       - main
     paths:
-      - 'packages/container/**'
+      - 'container/**'
 
 defaults:
   run:
-    working-directory: ./../../packages/container
-
- workflow_dispatch:
-    inputs:
-      release-version:
-        description: 'Release version tag'
-        default: 'v1.0.0'
-        required: true
+    working-directory: container
 
 jobs:
   build:
